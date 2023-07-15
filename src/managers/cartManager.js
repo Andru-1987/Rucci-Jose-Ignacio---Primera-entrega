@@ -89,3 +89,6 @@ class CartManager {
         return 404
     }
 }
+
+
+module.exports = {CartManager}
