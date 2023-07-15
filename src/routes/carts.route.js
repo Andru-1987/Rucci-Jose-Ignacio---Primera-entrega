@@ -3,7 +3,7 @@ const cartRouter = express.Router()
 const {Cart}    =   require("../models/cart")
 const {CartManager} = require("../managers/cartManager")
 
-const productManager = new CartManager("../../../resources/carts.json")
+const productManager = new CartManager("../resources/carts.json")
 
 cartRouter.post('', (req, res) => {
     let cart = new Cart(req.body.products)

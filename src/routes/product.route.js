@@ -3,7 +3,7 @@ const productRouter = express.Router()
 const {Product} = require("../models/product")
 const {ProductManager} = require("../managers/productManager")
 
-const productManager = new ProductManager("../../../resources/products.json")
+const productManager = new ProductManager("./src/resources/products.json")
 
 productRouter.get('', (req, res) => {
     let limit = Number(req.query.limit)
@@ -11,6 +11,9 @@ productRouter.get('', (req, res) => {
         limit = -1
     }
 
+    let data = productManager.getProducts(limit)
+    console.log(data)
+    
     res.send(productManager.getProducts(limit))
 })
 productRouter.get('/:pid', (req, res) => {
